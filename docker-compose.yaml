@@ -1,0 +1,29 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:80'
+    environment:
+      DATABASE_HOSTNAME: mariadb
+    volumes:
+      - .:/app
+    networks:
+      - shield
+  mariadb:
+    image: mariadb:11.1.2
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: shield-dev-db
+      MARIADB_USER: root
+    ports:
+      - 3306:3306
+    volumes:
+      - ./database/mariadb:/docker-entrypoint-initdb.d
+    networks:
+      - shield
+networks:
+  shield:
+    driver: bridge

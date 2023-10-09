@@ -1,0 +1,11 @@
+fastapi==0.103.1
+SQLAlchemy==2.0.21
+pydantic-settings==2.0.3
+pymysql==1.1.0
+uvicorn==0.23.2
+passlib==1.7.4
+python-jose==3.3.0
+pytz==2022.1
+asyncmy==0.2.8
+email-validator==2.0.0
+python-multipart==0.0.6
